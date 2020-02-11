@@ -23,6 +23,7 @@ MongoClient.connect('mongodb://localhost:27017')
   const bookingsCollection = db.collection('bookings');
   const bookingsRouter = createRouter(bookingsCollection);
   app.use('/api/bookings', bookingsRouter);
+  app.use('/', express.static(path.join(__dirname + '/public/')));
 })
 .catch(console.err);
 
