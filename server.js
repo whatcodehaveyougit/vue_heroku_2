@@ -17,9 +17,9 @@ app.use(bodyParser.json());
  //   app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html  '));
  // }
 
-MongoClient.connect('mongodb://localhost:27017')
+MongoClient.connect('mongodb://sigurd:password1@ds259518.mlab.com:59518/heroku_7ftsxjvl')
 .then((client) =>{
-  const db = client.db('hotel');
+  const db = client.db('heroku_7ftsxjvl');
   const bookingsCollection = db.collection('bookings');
   const bookingsRouter = createRouter(bookingsCollection);
   app.use('/api/bookings', bookingsRouter);
