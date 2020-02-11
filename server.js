@@ -10,12 +10,12 @@ const createRouter = require('./helpers/create_router.js');
 
 app.use(bodyParser.json());
 
- if (process.env.NODE_env === 'production') {
-   // Static FOlder
-   app.use(express.static(__dirname + '/public/'));
-
-   app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html  '));
- }
+ // if (process.env.NODE_env === 'production') {
+ //   // Static FOlder
+ //   app.use(express.static(__dirname + '/public/'));
+ //
+ //   app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html  '));
+ // }
 
 MongoClient.connect('mongodb://localhost:27017')
 .then((client) =>{
