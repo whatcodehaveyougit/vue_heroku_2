@@ -2,7 +2,7 @@
 // const ObjectId = require('mongodb').ObjectId;
 const mongodb = require('mongodb');
 
-// const createRouter = function(collection) {
+const createRouter = function(collection) {
   const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -49,6 +49,6 @@ router.get('/', (req, res) => {
   // })
 
   return router;
-// }
+}
 
 module.exports = router;
