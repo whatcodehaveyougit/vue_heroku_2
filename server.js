@@ -23,7 +23,8 @@ MongoClient.connect('mongodb://sigurd:password1@ds259518.mlab.com:59518/heroku_7
   const bookingsCollection = db.collection('bookings');
   const bookingsRouter = createRouter(bookingsCollection);
   app.use('/api/bookings', bookingsRouter);
-  app.use('/', express.static('public'));
+  // app.use('/', express.static('public'));
+  app.use(express.static('public'));
   // app.use('/', express.static(path.join(__dirname + '/public/')));
 
 })
