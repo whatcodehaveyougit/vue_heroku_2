@@ -5,7 +5,7 @@ const createRouter = function(collection) {
   const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.send();
+  res.send("Hello World");
 });
 
   // router.get('/', (req, res) => {
