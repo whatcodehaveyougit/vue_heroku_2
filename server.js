@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 
 const cors = require('cors');
 app.use(cors());
@@ -17,8 +18,10 @@ app.use(bodyParser.json());
  //   app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html  '));
  // }
 
-MongoClient.connect('mongodb://sigurd:password1@ds259518.mlab.com:59518/heroku_7ftsxjvl')
-.then((client) =>{
+MongoClient.connect('mongodb://sigurd:password1@ds259518.mlab.com:59518/heroku_7ftsxjvl',
+function(err, client) {
+  if(err) {console.log()};
+// .then((client) =>{
   const db = client.db('heroku_7ftsxjvl');
   const bookingsCollection = db.collection('bookings');
   const bookingsRouter = createRouter(bookingsCollection);
@@ -26,7 +29,7 @@ MongoClient.connect('mongodb://sigurd:password1@ds259518.mlab.com:59518/heroku_7
   // app.use('/', express.static('public'));
   // app.use(express.static('public'));
   // app.use('/', express.static(path.join(__dirname + '/public/')));
-  app.use(express.static(path.join(__dirname + '/public/')));
+  app.use('/', express.static(path.join(__dirname + '/public/')));
 
 })
 .catch(console.err);
