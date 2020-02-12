@@ -51,4 +51,4 @@ const createRouter = function(collection) {
   return router;
 }
 
-module.exports = router;
+module.exports = createRouter;

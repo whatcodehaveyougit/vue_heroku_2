@@ -18,13 +18,14 @@ app.use(bodyParser.json());
  //   app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html  '));
  // }
 
-MongoClient.connect('mongodb://sigurd:password1@ds259518.mlab.com:59518/heroku_7ftsxjvl',
+MongoClient.connect('mongodb://siggy:siggy1@ds259518.mlab.com:59518/heroku_7ftsxjvl',
 function(err, client) {
   if(err) {console.log()};
 // .then((client) =>{
   const db = client.db('heroku_7ftsxjvl');
   const bookingsCollection = db.collection('bookings');
   const bookingsRouter = createRouter(bookingsCollection);
+  console.log(bookingsRouter);
   app.use('/api/bookings', bookingsRouter);
   // app.use('/', express.static('public'));
   // app.use(express.static('public'));
@@ -32,7 +33,7 @@ function(err, client) {
   app.use('/', express.static(path.join(__dirname + '/public/')));
 
 })
-.catch(console.err);
+// .catch(console.err);
 
 app.listen(process.env.PORT || 3000, function () {
   console.log(`Listening on port ${this.address().port }`)
